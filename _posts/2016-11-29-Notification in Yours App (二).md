@@ -1,8 +1,8 @@
-#Notification in Yours App (二)
-
-@(毕业设计)
-
-[TOC]
+---
+title: Notification in Yours App (二)
+date: 2019-11-29 19:55:16
+categories: Notification
+---
 
 ### Managing Your App's Notification Support
 应用必须在开启的时候配置本地和远程通知。特殊情况下，你必须提前配置你的应用，如果它执行以下操作：
