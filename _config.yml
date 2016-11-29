@@ -3,9 +3,9 @@
 # Site wide configuration
 ####################################
 #
-title: Leonids
+title: Gia 酱
 email:
-description: A simple and awesome blog theme powered by jekyll.
+description: Gia 酱的技术博客
 url: https://codergiajiang.github.io/GiaJiangBlog.github.io/
 
 
@@ -33,7 +33,7 @@ kramdown:
 ####################################
 #
 owner:
-  name: Leonids
+  name: Gia 酱 
   avatar: leonids-logo.png
   job: "A jekyll theme"
   bio: "A simple and awesome blog theme powered by jekyll."
