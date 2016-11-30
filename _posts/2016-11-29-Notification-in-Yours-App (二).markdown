@@ -18,9 +18,9 @@ title: Notification in Yours App (二)
 #### 向用户请求授权
 
 在 iOS , tvOS 和 watchOS, 应用必须授权去显示提醒，播放音乐或者标志应用图标即将到来通知的响应。请求授权将这些交互的控制置于用户的手中，他们可以允许或者拒绝你的请求。用户还可以在之后的系统设置中修改应用的授权设置。
-对于请求授权，调用 `NSUserNotificationCenter` 单例对象中 [requestAuthorizationWithOptions:completionHandler:`](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions) 方法。如果你的应用已获得授权所有要求的互动类型的授权，系统回调带有 granted 参数为 YES 的完成处理 block。如果一个或者多个的互动类型没有被允许，参数返回 NO。列表 2-1 展示了如何为播放声音和显示提醒请求授权。使用完成处理的 block，根据交互类型是否允许或拒绝去更新你的应用的行为。
+对于请求授权，调用 `NSUserNotificationCenter` 单例对象中 [requestAuthorizationWithOptions:completionHandler:`](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions) 方法。如果你的应用已获得授权所有要求的互动类型的授权，系统回调带有 granted 参数为 YES 的完成处理 block。如果一个或者多个的互动类型没有被允许，参数返回 NO。**列表 2-1** 展示了如何为播放声音和显示提醒请求授权。使用完成处理的 block，根据交互类型是否允许或拒绝去更新你的应用的行为。
 
-列表 2-1 为用户交互请求授权
+**列表 2-1 为用户交互请求授权**
 
 **OBJECTIVE-C**
 
@@ -46,7 +46,7 @@ requestAuthorizationWithOptions:completionHandler: ](https://developer.apple.com
 
 > NOTE
 
-> 用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 `UNUserNotificationCenter` 中[getNotificationSettingsWithCompletionHandler: ](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl) 的方法去精确地确定哪种交互类型可以使用。
+> 用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 `UNUserNotificationCenter` 中 [getNotificationSettingsWithCompletionHandler: ](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl) 的方法去精确地确定哪种交互类型可以使用。
 
 
 ### Configuring Categories and Actionable Notifications
@@ -69,9 +69,9 @@ Categories 定义你的应用支持的通知类型与告知系统你想如何呈
 
 在开启时，你注册所有的应用 Categories 马上使用单例 [UNUserNotificationCenter](https://developer.apple.com/reference/usernotifications/unusernotificationcenter) 对象的 [setNotificationCategories: method](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649512-setnotificationcategories) 方法。调用方法之前，你创建一个或者多个 [UNNotificationCategory](https://developer.apple.com/reference/usernotifications/unnotificationcategory) 的类的实例对象并指定显示该类型的通知时候要使用的 Categories 的名字和选项。Category 名字存在应用内部，并且永远不会被用户看见。当安排通知是，你在通知内容中包含的 category 名字，该通知内容系统用于恢复选项和显示通知。
 
-列表 2-2 显示如何在系统中创建一个简单的 [UNNotificationCategory](https://developer.apple.com/reference/usernotifications/unnotificationcategory) 对象和注册。这个 category 有一个 "GRNERAL" 的名字并被配置带有一个自定义关闭操作的选项，这个选项可以在用户没有做任何操作时的情况下关闭通知界面时让系统通知应用。
+**列表 2-2** 显示如何在系统中创建一个简单的 [UNNotificationCategory](https://developer.apple.com/reference/usernotifications/unnotificationcategory) 对象和注册。这个 category 有一个 "GRNERAL" 的名字并被配置带有一个自定义关闭操作的选项，这个选项可以在用户没有做任何操作时的情况下关闭通知界面时让系统通知应用。
 
-列表 2-1 创建和注册一个通知 category
+**列表 2-1 创建和注册一个通知 category**
 
 **OBJECTIVE-C**
 
@@ -104,11 +104,13 @@ center.setNotificationCategories([generalCategory])
 
 ### Adding Custom Actions to Your Categories
 
+#### 添加自定义 Action 到 Category
+
 每一个注册的 category 可以最多可以包含四个自定义操作。当有一个 category 包含自定义操作时，系统在通知界面上添加一个按钮，每一个按钮都带有自定义操作的标题。如果用户点击其中一个自定义操作，系统发送相同的操作标识到应用，根据需要打开应用。
 
-去定义一个自定义操作，创建一个 [UNNotificationAction](https://developer.apple.com/reference/usernotifications/unnotificationaction) 对象并添加它到你一个 category 的对象中。每一个操作包含相应按钮的标题字符串和如何显示按钮和处理相关任务的选项。当用户选择一个操作时，系统为你应用提供操作标识字符串，你可以使用该字符串去标识要执行的任务。列表 2-3 是对列表 2-2 的扩充：添加一个带有两个自定义操作的新的 category 
+去定义一个自定义操作，创建一个 [UNNotificationAction](https://developer.apple.com/reference/usernotifications/unnotificationaction) 对象并添加它到你一个 category 的对象中。每一个操作包含相应按钮的标题字符串和如何显示按钮和处理相关任务的选项。当用户选择一个操作时，系统为你应用提供操作标识字符串，你可以使用该字符串去标识要执行的任务。**列表 2-3** 是对**列表 2-2** 的扩充：添加一个带有两个自定义操作的新的 category 
 
-列表 2-3 定义带有自定义操作的一个 category
+**列表 2-3 定义带有自定义操作的一个 category**
 
 **OBJECTIVE-C**
 
