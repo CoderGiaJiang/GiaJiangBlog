@@ -16,7 +16,8 @@ disqus: diqus-username
 highlighter: pygments
 markdown: redcarpet
 redcarpet:
-  extensions: ["tables"]
+redcarpet:
+    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
 
 defaults:
   - scope:
