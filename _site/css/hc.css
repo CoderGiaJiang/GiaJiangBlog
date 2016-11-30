@@ -575,62 +575,62 @@ time
   text-shadow:1px 1px #fff
 }
 
-.fashion
+.technology
 {
   border-left:solid 2px #bc0005
 }
 
-.fashion-button
+.technology-button
 {
   background-color:#bc0005
 }
 
-.fashion:hover
+.technology:hover
 {
   border-left:solid 2px #f40006
 }
 
-.fashion-button:hover
+.technology-button:hover
 {
   background-color:#f40006
 }
 
-.programming
+.forum
 {
   border-left:solid 2px #7dbcb2
 }
 
-.programming-button
+.forum-button
 {
   background-color:#7dbcb2
 }
 
-.programming:hover
+.forum:hover
 {
   border-left:solid 2px #bbe9e2
 }
 
-.programming-button:hover
+.forum-button:hover
 {
   background-color:#bbe9e2
 }
 
-.tech
+.tv
 {
   border-left:solid 2px #644539
 }
 
-.tech-button
+.tv-button
 {
   background-color:#644539
 }
 
-.tech:hover
+.tv:hover
 {
   border-left:solid 2px #F4A273
 }
 
-.tech-button:hover
+.tv-button:hover
 {
   background-color:#F4A273
 }
