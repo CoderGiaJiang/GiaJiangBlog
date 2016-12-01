@@ -24,22 +24,22 @@ title: Notification in Yours App (二)
 
 **OBJECTIVE-C**
 
-```Objective-C 
+{% highlight objectivec  %} 
 UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
 [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
 completionHandler:^(BOOL granted, NSError * _Nullable error) {
 // Enable or disable features based on authorization.
 }];
-```
+{% endhighlight %}
 
 **SWIFT**
 
-```Objective-C 
+{% highlight objectivec  %} 
 let center = UNUserNotificationCenter.current()
 center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
 // Enable or disable features based on authorization.
 }
-```
+{% endhighlight %}
 
 你的应用开启并调用 [
 requestAuthorizationWithOptions:completionHandler: ](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions) 方法的第一时间，系统提示用户允许或者拒绝交互请求。因为系统保存用户的响应，当用户再次开启并调用该方法时不再提醒。
@@ -75,7 +75,7 @@ Categories 定义你的应用支持的通知类型与告知系统你想如何呈
 
 **OBJECTIVE-C**
 
-```Objective-C 
+{% highlight objectivec  %} 
 UNNotificationCategory* generalCategory = [UNNotificationCategory
 categoryWithIdentifier:@"GENERAL"
 actions:@[]
@@ -85,11 +85,11 @@ options:UNNotificationCategoryOptionCustomDismissAction];
 // Register the notification categories.
 UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
 [center setNotificationCategories:[NSSet setWithObjects:generalCategory, nil]];
-```
+{% endhighlight %}
 
 **SWIFT**
 
-```Objective-C 
+{% highlight objectivec  %} 
 let generalCategory = UNNotificationCategory(identifier: "GENERAL",
 actions: [],
 intentIdentifiers: [],
@@ -98,7 +98,7 @@ options: .customDismissAction)
 // Register the category.
 let center = UNUserNotificationCenter.current()
 center.setNotificationCategories([generalCategory])
-```
+{% endhighlight %}
 
 你没有必要为所有的你在应用中调用通知安排一个 category。尽管如此，如果你没有包含一个 category, 你的通知在显示的时候没有任何自定义操作或者配置选项。
 
@@ -114,7 +114,7 @@ center.setNotificationCategories([generalCategory])
 
 **OBJECTIVE-C**
 
-```Objective-C 
+{% highlight objectivec  %} 
 
 UNNotificationCategory* generalCategory = [UNNotificationCategory
 categoryWithIdentifier:@"GENERAL"
@@ -145,7 +145,7 @@ UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotification
 [center setNotificationCategories:[NSSet setWithObjects:generalCategory, expiredCategory,
 nil]];
 
-```
+{% endhighlight %}
 
 **SWIFT**
 

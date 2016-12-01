@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//" rel="alternate" type="text/html" /><updated>2016-12-01T09:29:24+08:00</updated><id>/https://codergiajiang.github.io/GiaJiangBlog.github.io///</id><title type="html">Gia Jiang</title><subtitle>Gia Jiang Blog</subtitle><author><name>Gia Jiang</name></author><entry><title type="html">Notification in Yours App (二)</title><link href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html" rel="alternate" type="text/html" title="Notification in Yours App (二)" /><published>2016-11-29T00:00:00+08:00</published><updated>2016-11-29T00:00:00+08:00</updated><id>/https://codergiajiang.github.io/GiaJiangBlog.github.io//2016/11/29/Notification-in-Yours-App%20(%E4%BA%8C)</id><content type="html" xml:base="/https://codergiajiang.github.io/GiaJiangBlog.github.io//2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html">&lt;h3&gt;Managing Your App&amp;#39;s Notification Support&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//" rel="alternate" type="text/html" /><updated>2016-12-01T09:32:21+08:00</updated><id>/https://codergiajiang.github.io/GiaJiangBlog.github.io///</id><title type="html">Gia Jiang</title><subtitle>Gia Jiang Blog</subtitle><author><name>Gia Jiang</name></author><entry><title type="html">Notification in Yours App (二)</title><link href="/https://codergiajiang.github.io/GiaJiangBlog.github.io//2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html" rel="alternate" type="text/html" title="Notification in Yours App (二)" /><published>2016-11-29T00:00:00+08:00</published><updated>2016-11-29T00:00:00+08:00</updated><id>/https://codergiajiang.github.io/GiaJiangBlog.github.io//2016/11/29/Notification-in-Yours-App%20(%E4%BA%8C)</id><content type="html" xml:base="/https://codergiajiang.github.io/GiaJiangBlog.github.io//2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html">&lt;h3&gt;Managing Your App&amp;#39;s Notification Support&lt;/h3&gt;
 
 &lt;h4&gt;管理应用通知支持&lt;/h4&gt;
 
@@ -22,18 +22,22 @@
 &lt;p&gt;&lt;strong&gt;列表 2-1 为用户交互请求授权&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;OBJECTIVE-C&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot; data-lang=&quot;Objective-C&quot;&gt;&lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentNotificationCenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objectivec&quot; data-lang=&quot;objectivec&quot;&gt; 
+&lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentNotificationCenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;requestAuthorizationWithOptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNAuthorizationOptionAlert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UNAuthorizationOptionSound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;completionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;BOOL&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;granted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;NSError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_Nullable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// Enable or disable features based on authorization.&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;&lt;strong&gt;SWIFT&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot; data-lang=&quot;Objective-C&quot;&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objectivec&quot; data-lang=&quot;objectivec&quot;&gt; 
+&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requestAuthorization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;granted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// Enable or disable features based on authorization.&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;你的应用开启并调用 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions&quot;&gt;
 requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时间，系统提示用户允许或者拒绝交互请求。因为系统保存用户的响应，当用户再次开启并调用该方法时不再提醒。&lt;/p&gt;
 
@@ -70,7 +74,9 @@ requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时
 &lt;p&gt;&lt;strong&gt;列表 2-1 创建和注册一个通知 category&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;OBJECTIVE-C&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot; data-lang=&quot;Objective-C&quot;&gt;&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objectivec&quot; data-lang=&quot;objectivec&quot;&gt; 
+&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;categoryWithIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;GENERAL&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;l&quot;&gt;@[]&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;intentIdentifiers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;l&quot;&gt;@[]&lt;/span&gt;
@@ -78,18 +84,20 @@ requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时
 
 &lt;span class=&quot;c1&quot;&gt;// Register the notification categories.&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentNotificationCenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;setNotificationCategories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSSet&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;setWithObjects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;setNotificationCategories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSSet&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;setWithObjects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;&lt;strong&gt;SWIFT&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot; data-lang=&quot;Objective-C&quot;&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;GENERAL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objectivec&quot; data-lang=&quot;objectivec&quot;&gt; 
+&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;GENERAL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;intentIdentifiers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;customDismissAction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// Register the category.&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setNotificationCategories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setNotificationCategories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;你没有必要为所有的你在应用中调用通知安排一个 category。尽管如此，如果你没有包含一个 category, 你的通知在显示的时候没有任何自定义操作或者配置选项。&lt;/p&gt;
 
 &lt;h3&gt;Adding Custom Actions to Your Categories&lt;/h3&gt;
@@ -103,7 +111,10 @@ requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时
 &lt;p&gt;&lt;strong&gt;列表 2-3 定义带有自定义操作的一个 category&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;OBJECTIVE-C&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot; data-lang=&quot;Objective-C&quot;&gt;&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objectivec&quot; data-lang=&quot;objectivec&quot;&gt; 
+
+&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;categoryWithIdentifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;GENERAL&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;l&quot;&gt;@[]&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;intentIdentifiers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;l&quot;&gt;@[]&lt;/span&gt;
@@ -130,8 +141,8 @@ requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时
 &lt;span class=&quot;c1&quot;&gt;// Register the notification categories.&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNUserNotificationCenter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentNotificationCenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;center&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;setNotificationCategories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSSet&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;setWithObjects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expiredCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;&lt;strong&gt;SWIFT&lt;/strong&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objectivec&quot; data-lang=&quot;objectivec&quot;&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generalCategory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UNNotificationCategory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;identifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;GENERAL&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
