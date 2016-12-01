@@ -149,7 +149,7 @@ nil]];
 
 **SWIFT**
 
-{% highlight python  %}
+{% highlight objective-c  %}
 
 let generalCategory = UNNotificationCategory(identifier: "GENERAL",
 actions: [],
