@@ -24,8 +24,7 @@ title: Notification in Yours App (二)
 
 **OBJECTIVE-C**
 
-{% highlight %} 
-
+{% highlight Objective-C %} 
 UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
 [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
 completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -35,7 +34,7 @@ completionHandler:^(BOOL granted, NSError * _Nullable error) {
 
 **SWIFT**
 
-{% highlight %} 
+{% highlight Objective-C %} 
 let center = UNUserNotificationCenter.current()
 center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
 // Enable or disable features based on authorization.
@@ -75,8 +74,7 @@ Categories 定义你的应用支持的通知类型与告知系统你想如何呈
 **列表 2-1 创建和注册一个通知 category**
 
 **OBJECTIVE-C**
-
-{% highlight %} 
+{% highlight Objective-C %} 
 UNNotificationCategory* generalCategory = [UNNotificationCategory
 categoryWithIdentifier:@"GENERAL"
 actions:@[]
@@ -90,7 +88,7 @@ UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotification
 
 **SWIFT**
 
-{% highlight %} 
+{% highlight Objective-C %} 
 let generalCategory = UNNotificationCategory(identifier: "GENERAL",
 actions: [],
 intentIdentifiers: [],
@@ -115,7 +113,7 @@ center.setNotificationCategories([generalCategory])
 
 **OBJECTIVE-C**
 
-{% highlight %} 
+{% highlight Objective-C %} 
 
 UNNotificationCategory* generalCategory = [UNNotificationCategory
 categoryWithIdentifier:@"GENERAL"

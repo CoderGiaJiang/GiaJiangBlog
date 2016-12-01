@@ -8,7 +8,7 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/hc.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/pygments.css"> 
+<link rel="stylesheet" href="/css/rouge_monkai.css"> 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -94,20 +94,19 @@
 <p><strong>OBJECTIVE-C</strong></p>
 
 <figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"> 
-
-<span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
-<span class="p">[</span><span class="n">center</span> <span class="nl">requestAuthorizationWithOptions</span><span class="p">:(</span><span class="n">UNAuthorizationOptionAlert</span> <span class="o">+</span> <span class="n">UNAuthorizationOptionSound</span><span class="p">)</span>
-<span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">granted</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// Enable or disable features based on authorization.</span>
-<span class="p">}];</span></code></pre></figure>
+UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+[center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
+completionHandler:^(BOOL granted, NSError * _Nullable error) {
+// Enable or disable features based on authorization.
+}];</code></pre></figure>
 
 <p><strong>SWIFT</strong></p>
 
 <figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"> 
-<span class="n">let</span> <span class="n">center</span> <span class="o">=</span> <span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">()</span>
-<span class="n">center</span><span class="p">.</span><span class="n">requestAuthorization</span><span class="p">(</span><span class="nl">options</span><span class="p">:</span> <span class="p">[.</span><span class="n">alert</span><span class="p">,</span> <span class="p">.</span><span class="n">sound</span><span class="p">])</span> <span class="p">{</span> <span class="p">(</span><span class="n">granted</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
-<span class="c1">// Enable or disable features based on authorization.</span>
-<span class="p">}</span></code></pre></figure>
+let center = UNUserNotificationCenter.current()
+center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+// Enable or disable features based on authorization.
+}</code></pre></figure>
 
 <p>你的应用开启并调用 <a href="https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions">
 requestAuthorizationWithOptions:completionHandler: </a> 方法的第一时间，系统提示用户允许或者拒绝交互请求。因为系统保存用户的响应，当用户再次开启并调用该方法时不再提醒。</p>
@@ -147,27 +146,27 @@ requestAuthorizationWithOptions:completionHandler: </a> 方法的第一时间，
 <p><strong>OBJECTIVE-C</strong></p>
 
 <figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"> 
-<span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
-<span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@&quot;GENERAL&quot;</span>
-<span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
-<span class="nl">intentIdentifiers</span><span class="p">:</span><span class="l">@[]</span>
-<span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationCategoryOptionCustomDismissAction</span><span class="p">];</span>
+UNNotificationCategory* generalCategory = [UNNotificationCategory
+categoryWithIdentifier:@"GENERAL"
+actions:@[]
+intentIdentifiers:@[]
+options:UNNotificationCategoryOptionCustomDismissAction];
 
-<span class="c1">// Register the notification categories.</span>
-<span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
-<span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="nb">nil</span><span class="p">]];</span></code></pre></figure>
+// Register the notification categories.
+UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+[center setNotificationCategories:[NSSet setWithObjects:generalCategory, nil]];</code></pre></figure>
 
 <p><strong>SWIFT</strong></p>
 
 <figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"> 
-<span class="n">let</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="n">UNNotificationCategory</span><span class="p">(</span><span class="nl">identifier</span><span class="p">:</span> <span class="s">&quot;GENERAL&quot;</span><span class="p">,</span>
-<span class="nl">actions</span><span class="p">:</span> <span class="p">[],</span>
-<span class="nl">intentIdentifiers</span><span class="p">:</span> <span class="p">[],</span>
-<span class="nl">options</span><span class="p">:</span> <span class="p">.</span><span class="n">customDismissAction</span><span class="p">)</span>
+let generalCategory = UNNotificationCategory(identifier: "GENERAL",
+actions: [],
+intentIdentifiers: [],
+options: .customDismissAction)
 
-<span class="c1">// Register the category.</span>
-<span class="n">let</span> <span class="n">center</span> <span class="o">=</span> <span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">()</span>
-<span class="n">center</span><span class="p">.</span><span class="n">setNotificationCategories</span><span class="p">([</span><span class="n">generalCategory</span><span class="p">])</span></code></pre></figure>
+// Register the category.
+let center = UNUserNotificationCenter.current()
+center.setNotificationCategories([generalCategory])</code></pre></figure>
 
 <p>你没有必要为所有的你在应用中调用通知安排一个 category。尽管如此，如果你没有包含一个 category, 你的通知在显示的时候没有任何自定义操作或者配置选项。</p>
 
@@ -185,58 +184,58 @@ requestAuthorizationWithOptions:completionHandler: </a> 方法的第一时间，
 
 <figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"> 
 
-<span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
-<span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@&quot;GENERAL&quot;</span>
-<span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
-<span class="nl">intentIdentifiers</span><span class="p">:</span><span class="l">@[]</span>
-<span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationCategoryOptionCustomDismissAction</span><span class="p">];</span>
+UNNotificationCategory* generalCategory = [UNNotificationCategory
+categoryWithIdentifier:@"GENERAL"
+actions:@[]
+intentIdentifiers:@[]
+options:UNNotificationCategoryOptionCustomDismissAction];
 
-<span class="c1">// Create the custom actions for expired timer notifications.</span>
-<span class="n">UNNotificationAction</span><span class="o">*</span> <span class="n">snoozeAction</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationAction</span>
-<span class="nl">actionWithIdentifier</span><span class="p">:</span><span class="s">@&quot;SNOOZE_ACTION&quot;</span>
-<span class="nl">title</span><span class="p">:</span><span class="s">@&quot;Snooze&quot;</span>
-<span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationActionOptionNone</span><span class="p">];</span>
+// Create the custom actions for expired timer notifications.
+UNNotificationAction* snoozeAction = [UNNotificationAction
+actionWithIdentifier:@"SNOOZE_ACTION"
+title:@"Snooze"
+options:UNNotificationActionOptionNone];
 
-<span class="n">UNNotificationAction</span><span class="o">*</span> <span class="n">stopAction</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationAction</span>
-<span class="nl">actionWithIdentifier</span><span class="p">:</span><span class="s">@&quot;STOP_ACTION&quot;</span>
-<span class="nl">title</span><span class="p">:</span><span class="s">@&quot;Stop&quot;</span>
-<span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationActionOptionForeground</span><span class="p">];</span>
+UNNotificationAction* stopAction = [UNNotificationAction
+actionWithIdentifier:@"STOP_ACTION"
+title:@"Stop"
+options:UNNotificationActionOptionForeground];
 
-<span class="c1">// Create the category with the custom actions.</span>
-<span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">expiredCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
-<span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@&quot;TIMER_EXPIRED&quot;</span>
-<span class="nl">actions</span><span class="p">:</span><span class="l">@[</span><span class="n">snoozeAction</span><span class="p">,</span> <span class="n">stopAction</span><span class="l">]</span>
-<span class="nl">intentIdentifiers</span><span class="p">:</span><span class="l">@[]</span>
-<span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationCategoryOptionNone</span><span class="p">];</span>
+// Create the category with the custom actions.
+UNNotificationCategory* expiredCategory = [UNNotificationCategory
+categoryWithIdentifier:@"TIMER_EXPIRED"
+actions:@[snoozeAction, stopAction]
+intentIdentifiers:@[]
+options:UNNotificationCategoryOptionNone];
 
-<span class="c1">// Register the notification categories.</span>
-<span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
-<span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="n">expiredCategory</span><span class="p">,</span>
-<span class="nb">nil</span><span class="p">]];</span></code></pre></figure>
+// Register the notification categories.
+UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+[center setNotificationCategories:[NSSet setWithObjects:generalCategory, expiredCategory,
+nil]];</code></pre></figure>
 
 <p><strong>SWIFT</strong></p>
 
-<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="n">let</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="n">UNNotificationCategory</span><span class="p">(</span><span class="nl">identifier</span><span class="p">:</span> <span class="s">&quot;GENERAL&quot;</span><span class="p">,</span>
-<span class="nl">actions</span><span class="p">:</span> <span class="p">[],</span>
-<span class="nl">intentIdentifiers</span><span class="p">:</span> <span class="p">[],</span>
-<span class="nl">options</span><span class="p">:</span> <span class="p">.</span><span class="n">customDismissAction</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">let generalCategory = UNNotificationCategory(identifier: "GENERAL",
+actions: [],
+intentIdentifiers: [],
+options: .customDismissAction)
 
-<span class="c1">// Create the custom actions for the TIMER_EXPIRED category.</span>
-<span class="n">let</span> <span class="n">snoozeAction</span> <span class="o">=</span> <span class="n">UNNotificationAction</span><span class="p">(</span><span class="nl">identifier</span><span class="p">:</span> <span class="s">&quot;SNOOZE_ACTION&quot;</span><span class="p">,</span>
-<span class="nl">title</span><span class="p">:</span> <span class="s">&quot;Snooze&quot;</span><span class="p">,</span>
-<span class="nl">options</span><span class="p">:</span> <span class="n">UNNotificationActionOptions</span><span class="p">(</span><span class="nl">rawValue</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
-<span class="n">let</span> <span class="n">stopAction</span> <span class="o">=</span> <span class="n">UNNotificationAction</span><span class="p">(</span><span class="nl">identifier</span><span class="p">:</span> <span class="s">&quot;STOP_ACTION&quot;</span><span class="p">,</span>
-<span class="nl">title</span><span class="p">:</span> <span class="s">&quot;Stop&quot;</span><span class="p">,</span>
-<span class="nl">options</span><span class="p">:</span> <span class="p">.</span><span class="n">foreground</span><span class="p">)</span>
+// Create the custom actions for the TIMER_EXPIRED category.
+let snoozeAction = UNNotificationAction(identifier: "SNOOZE_ACTION",
+title: "Snooze",
+options: UNNotificationActionOptions(rawValue: 0))
+let stopAction = UNNotificationAction(identifier: "STOP_ACTION",
+title: "Stop",
+options: .foreground)
 
-<span class="n">let</span> <span class="n">expiredCategory</span> <span class="o">=</span> <span class="n">UNNotificationCategory</span><span class="p">(</span><span class="nl">identifier</span><span class="p">:</span> <span class="s">&quot;TIMER_EXPIRED&quot;</span><span class="p">,</span>
-<span class="nl">actions</span><span class="p">:</span> <span class="p">[</span><span class="n">snoozeAction</span><span class="p">,</span> <span class="n">stopAction</span><span class="p">],</span>
-<span class="nl">intentIdentifiers</span><span class="p">:</span> <span class="p">[],</span>
-<span class="nl">options</span><span class="p">:</span> <span class="n">UNNotificationCategoryOptions</span><span class="p">(</span><span class="nl">rawValue</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+let expiredCategory = UNNotificationCategory(identifier: "TIMER_EXPIRED",
+actions: [snoozeAction, stopAction],
+intentIdentifiers: [],
+options: UNNotificationCategoryOptions(rawValue: 0))
 
-<span class="c1">// Register the notification categories.</span>
-<span class="n">let</span> <span class="n">center</span> <span class="o">=</span> <span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">()</span>
-<span class="n">center</span><span class="p">.</span><span class="n">setNotificationCategories</span><span class="p">([</span><span class="n">generalCategory</span><span class="p">,</span> <span class="n">expiredCategory</span><span class="p">])</span></code></pre></figure>
+// Register the notification categories.
+let center = UNUserNotificationCenter.current()
+center.setNotificationCategories([generalCategory, expiredCategory])</code></pre></figure>
 
 <p>尽管你可以最多指定在每一个 category 带有四个自定义操作，系统在一些情况下也只能显示前两个。例如，系统在横幅中显示通知只能显示两个操作。当初始化 <a href="https://developer.apple.com/reference/usernotifications/unnotificationcategory">UNNotificaitonCategory</a> 对象，所以在配置操作数组时，总是配置相关的操作在数组前面。</p>
 
@@ -321,7 +320,7 @@ requestAuthorizationWithOptions:completionHandler: </a> 方法的第一时间，
     <p class="text-muted credit">
       &copy; 2016 Gia Jiang &middot;
       <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
-      2016-12-01 10:25:24 +0800
+      2016-12-01 11:06:41 +0800
     </p>
   </footer>
 </div>
