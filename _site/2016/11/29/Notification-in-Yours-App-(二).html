@@ -109,8 +109,11 @@
 requestAuthorizationWithOptions:completionHandler: </a> 方法的第一时间，系统提示用户允许或者拒绝交互请求。因为系统保存用户的响应，当用户再次开启并调用该方法时不再提醒。</p>
 
 <blockquote>
-  <p>NOTE 
-用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 <code class="highlighter-rouge">UNUserNotificationCenter</code> 中 <a href="https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl">getNotificationSettingsWithCompletionHandler: </a> 的方法去精确地确定哪种交互类型可以使用。</p>
+  <p>NOTE</p>
+</blockquote>
+
+<blockquote>
+  <p>用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 <code class="highlighter-rouge">UNUserNotificationCenter</code> 中 <a href="https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl">getNotificationSettingsWithCompletionHandler: </a> 的方法去精确地确定哪种交互类型可以使用。</p>
 </blockquote>
 
 <h3 id="configuring-categories-and-actionable-notifications">Configuring Categories and Actionable Notifications</h3>
@@ -122,8 +125,11 @@ requestAuthorizationWithOptions:completionHandler: </a> 方法的第一时间，
 <p>应用必须明确地添加支持可操作的通知。在开启时间，应用必须注册一个或者多个 category, category 定义着应用发送的通知类型。每一个 category 关联的 Action 能够在用户收到一种通知类型执行。每一个 category 能够和四个action 关联，尽管 action 的数量显示依赖于通知如何显示和显示的位置。例如，在横幅不能显示超过两个 action。</p>
 
 <blockquote>
-  <p>NOTE
-可操作通知只支持 iOS 和 watchOS.</p>
+  <p>NOTE</p>
+</blockquote>
+
+<blockquote>
+  <p>可操作通知只支持 iOS 和 watchOS.</p>
 </blockquote>
 
 <h3 id="registering-the-notification-categories-for-your-app">Registering the Notification Categories for Your App</h3>
@@ -313,7 +319,7 @@ requestAuthorizationWithOptions:completionHandler: </a> 方法的第一时间，
     <p class="text-muted credit">
       &copy; 2016 Gia Jiang &middot;
       <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
-      2016-12-01 18:14:01 +0800
+      2016-12-01 18:15:57 +0800
     </p>
   </footer>
 </div>
