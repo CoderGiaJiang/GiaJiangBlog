@@ -34,7 +34,7 @@ UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotification
 
 **SWIFT**
 
-{% highlight swift %} 
+{% highlight swift %}
 let center = UNUserNotificationCenter.current()
 center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
 // Enable or disable features based on authorization.
