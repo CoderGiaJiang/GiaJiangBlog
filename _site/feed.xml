@@ -1,34 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-12-01T11:06:41+08:00</updated><id>http://localhost:4000//</id><title type="html">Gia Jiang</title><subtitle>Gia Jiang Blog</subtitle><author><name>Gia Jiang</name></author><entry><title type="html">Notification in Yours App (二)</title><link href="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html" rel="alternate" type="text/html" title="Notification in Yours App (二)" /><published>2016-11-29T00:00:00+08:00</published><updated>2016-11-29T00:00:00+08:00</updated><id>http://localhost:4000/2016/11/29/Notification-in-Yours-App%20(%E4%BA%8C)</id><content type="html" xml:base="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html">&lt;h3&gt;Managing Your App&amp;#39;s Notification Support&lt;/h3&gt;
-
-&lt;h4&gt;管理应用通知支持&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-12-01T14:36:24+08:00</updated><id>http://localhost:4000//</id><title type="html">Gia Jiang</title><subtitle>Gia Jiang Blog</subtitle><author><name>Gia Jiang</name></author><entry><title type="html">Notification in Yours App (二)</title><link href="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html" rel="alternate" type="text/html" title="Notification in Yours App (二)" /><published>2016-11-29T00:00:00+08:00</published><updated>2016-11-29T00:00:00+08:00</updated><id>http://localhost:4000/2016/11/29/Notification-in-Yours-App%20(%E4%BA%8C)</id><content type="html" xml:base="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html">&lt;h3 id=&quot;managing-your-apps-notification-support&quot;&gt;Managing Your App’s Notification Support&lt;/h3&gt;
+&lt;h4 id=&quot;管理应用通知支持&quot;&gt;管理应用通知支持&lt;/h4&gt;
 
 &lt;p&gt;应用必须在开启的时候去配置本地和远程通知。特殊情况下，如果它执行以下操作, 必须提前配置应用程序：&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;显示 提醒、播放音乐 或者 标记应用icon 去响应到达的通知。&lt;/li&gt;
-&lt;li&gt;显示 带有通知的自定义操作按钮。&lt;/li&gt;
+  &lt;li&gt;显示 提醒、播放音乐 或者 标记应用icon 去响应到达的通知。&lt;/li&gt;
+  &lt;li&gt;显示 带有通知的自定义操作按钮。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;通常在应用完成启动之前执行你的所有配置。在 iOS 和 tv OS, 这意味着你的通知配置支持不晚于 UIApplication 代理中 &lt;code&gt;application:didFinishLaunchingWithOptions:&lt;/code&gt; 的方法。在 watchOS，配置支持不晚于 WKExtension 代理中 &lt;code&gt;applicationDidFinishLaunching&lt;/code&gt; 的方法。你可以稍后再执行此配置，但是你必须避免在配置完成之前在你的应用中调用本地或者远程通知。
+&lt;p&gt;通常在应用完成启动之前执行你的所有配置。在 iOS 和 tv OS, 这意味着你的通知配置支持不晚于 UIApplication 代理中 &lt;code class=&quot;highlighter-rouge&quot;&gt;application:didFinishLaunchingWithOptions:&lt;/code&gt; 的方法。在 watchOS，配置支持不晚于 WKExtension 代理中 &lt;code class=&quot;highlighter-rouge&quot;&gt;applicationDidFinishLaunching&lt;/code&gt; 的方法。你可以稍后再执行此配置，但是你必须避免在配置完成之前在你的应用中调用本地或者远程通知。
 应用支持远程通知需要一些额外的配置，详细描述在 &lt;a href=&quot;https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1&quot;&gt;Configuring Remote Notification Support&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;Requesting Authorization to Interact with the User&lt;/h3&gt;
+&lt;h3 id=&quot;requesting-authorization-to-interact-with-the-user&quot;&gt;Requesting Authorization to Interact with the User&lt;/h3&gt;
 
-&lt;h4&gt;向用户请求授权&lt;/h4&gt;
+&lt;h4 id=&quot;向用户请求授权&quot;&gt;向用户请求授权&lt;/h4&gt;
 
 &lt;p&gt;在 iOS , tvOS 和 watchOS, 应用必须授权去显示提醒，播放音乐或者标志应用图标即将到来通知的响应。请求授权将这些交互的控制置于用户的手中，他们可以允许或者拒绝你的请求。用户还可以在之后的系统设置中修改应用的授权设置。
-对于请求授权，调用 &lt;code&gt;NSUserNotificationCenter&lt;/code&gt; 单例对象中 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions&quot;&gt;requestAuthorizationWithOptions:completionHandler:`&lt;/a&gt; 方法。如果你的应用已获得授权所有要求的互动类型的授权，系统回调带有 granted 参数为 YES 的完成处理 block。如果一个或者多个的互动类型没有被允许，参数返回 NO。&lt;strong&gt;列表 2-1&lt;/strong&gt; 展示了如何为播放声音和显示提醒请求授权。使用完成处理的 block，根据交互类型是否允许或拒绝去更新你的应用的行为。&lt;/p&gt;
+对于请求授权，调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;NSUserNotificationCenter&lt;/code&gt; 单例对象中 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions&quot;&gt;requestAuthorizationWithOptions:completionHandler:`&lt;/a&gt; 方法。如果你的应用已获得授权所有要求的互动类型的授权，系统回调带有 granted 参数为 YES 的完成处理 block。如果一个或者多个的互动类型没有被允许，参数返回 NO。&lt;strong&gt;列表 2-1&lt;/strong&gt; 展示了如何为播放声音和显示提醒请求授权。使用完成处理的 block，根据交互类型是否允许或拒绝去更新你的应用的行为。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;列表 2-1 为用户交互请求授权&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;OBJECTIVE-C&lt;/strong&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt; 
-UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
 [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
 completionHandler:^(BOOL granted, NSError * _Nullable error) {
 // Enable or disable features based on authorization.
-}];&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+}];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;SWIFT&lt;/strong&gt;&lt;/p&gt;
 
@@ -42,34 +42,32 @@ center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
 requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时间，系统提示用户允许或者拒绝交互请求。因为系统保存用户的响应，当用户再次开启并调用该方法时不再提醒。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;NOTE&lt;/p&gt;
-
-&lt;p&gt;用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 &lt;code&gt;UNUserNotificationCenter&lt;/code&gt; 中 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl&quot;&gt;getNotificationSettingsWithCompletionHandler: &lt;/a&gt; 的方法去精确地确定哪种交互类型可以使用。&lt;/p&gt;
+  &lt;p&gt;NOTE
+用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;UNUserNotificationCenter&lt;/code&gt; 中 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl&quot;&gt;getNotificationSettingsWithCompletionHandler: &lt;/a&gt; 的方法去精确地确定哪种交互类型可以使用。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;Configuring Categories and Actionable Notifications&lt;/h3&gt;
+&lt;h3 id=&quot;configuring-categories-and-actionable-notifications&quot;&gt;Configuring Categories and Actionable Notifications&lt;/h3&gt;
 
-&lt;h4&gt;配置通知中的 Categories 和 Action&lt;/h4&gt;
+&lt;h4 id=&quot;配置通知中的-categories-和-action&quot;&gt;配置通知中的 Categories 和 Action&lt;/h4&gt;
 
 &lt;p&gt;可操作的通知提供给用户一个快速和方便的方式去完成一个通知响应的相关任务。而不是强制用户去开启应用，可操作通知界面上提供用户能点击的自定义操作按钮。当用户点击时，每一个按钮从通知界面上消失并转发选择的操作到你的应用以便立即处理。转发操作到你的应用，避免了进一步引导用户在应用中执行操作的需要，从而节省时间。&lt;/p&gt;
 
 &lt;p&gt;应用必须明确地添加支持可操作的通知。在开启时间，应用必须注册一个或者多个 category, category 定义着应用发送的通知类型。每一个 category 关联的 Action 能够在用户收到一种通知类型执行。每一个 category 能够和四个action 关联，尽管 action 的数量显示依赖于通知如何显示和显示的位置。例如，在横幅不能显示超过两个 action。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;NOTE&lt;/p&gt;
-
-&lt;p&gt;可操作通知只支持 iOS 和 watchOS.&lt;/p&gt;
+  &lt;p&gt;NOTE
+可操作通知只支持 iOS 和 watchOS.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3&gt;Registering the Notification Categories for Your App&lt;/h3&gt;
+&lt;h3 id=&quot;registering-the-notification-categories-for-your-app&quot;&gt;Registering the Notification Categories for Your App&lt;/h3&gt;
 
-&lt;h4&gt;注册通知 Category 到应用中&lt;/h4&gt;
+&lt;h4 id=&quot;注册通知-category-到应用中&quot;&gt;注册通知 Category 到应用中&lt;/h4&gt;
 
 &lt;p&gt;Categories 定义你的应用支持的通知类型与告知系统你想如何呈现一个通知。使用 Categories 去结合自定义操作和通知，并指定定如何处理改类型通知的选项。例如，使用Categories 选项去指定是否能够在 CarPlay 环境下展示通知。&lt;/p&gt;
 
 &lt;p&gt;在开启时，你注册所有的应用 Categories 马上使用单例 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter&quot;&gt;UNUserNotificationCenter&lt;/a&gt; 对象的 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649512-setnotificationcategories&quot;&gt;setNotificationCategories: method&lt;/a&gt; 方法。调用方法之前，你创建一个或者多个 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationcategory&quot;&gt;UNNotificationCategory&lt;/a&gt; 的类的实例对象并指定显示该类型的通知时候要使用的 Categories 的名字和选项。Category 名字存在应用内部，并且永远不会被用户看见。当安排通知是，你在通知内容中包含的 category 名字，该通知内容系统用于恢复选项和显示通知。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;列表 2-2&lt;/strong&gt; 显示如何在系统中创建一个简单的 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationcategory&quot;&gt;UNNotificationCategory&lt;/a&gt; 对象和注册。这个 category 有一个 &amp;quot;GRNERAL&amp;quot; 的名字并被配置带有一个自定义关闭操作的选项，这个选项可以在用户没有做任何操作时的情况下关闭通知界面时让系统通知应用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;列表 2-2&lt;/strong&gt; 显示如何在系统中创建一个简单的 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationcategory&quot;&gt;UNNotificationCategory&lt;/a&gt; 对象和注册。这个 category 有一个 “GRNERAL” 的名字并被配置带有一个自定义关闭操作的选项，这个选项可以在用户没有做任何操作时的情况下关闭通知界面时让系统通知应用。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;列表 2-1 创建和注册一个通知 category&lt;/strong&gt;&lt;/p&gt;
 
@@ -100,13 +98,13 @@ center.setNotificationCategories([generalCategory])&lt;/code&gt;&lt;/pre&gt;&lt;
 
 &lt;p&gt;你没有必要为所有的你在应用中调用通知安排一个 category。尽管如此，如果你没有包含一个 category, 你的通知在显示的时候没有任何自定义操作或者配置选项。&lt;/p&gt;
 
-&lt;h3&gt;Adding Custom Actions to Your Categories&lt;/h3&gt;
+&lt;h3 id=&quot;adding-custom-actions-to-your-categories&quot;&gt;Adding Custom Actions to Your Categories&lt;/h3&gt;
 
-&lt;h4&gt;添加自定义 Action 到 Category&lt;/h4&gt;
+&lt;h4 id=&quot;添加自定义-action-到-category&quot;&gt;添加自定义 Action 到 Category&lt;/h4&gt;
 
 &lt;p&gt;每一个注册的 category 可以最多可以包含四个自定义操作。当有一个 category 包含自定义操作时，系统在通知界面上添加一个按钮，每一个按钮都带有自定义操作的标题。如果用户点击其中一个自定义操作，系统发送相同的操作标识到应用，根据需要打开应用。&lt;/p&gt;
 
-&lt;p&gt;去定义一个自定义操作，创建一个 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationaction&quot;&gt;UNNotificationAction&lt;/a&gt; 对象并添加它到你一个 category 的对象中。每一个操作包含相应按钮的标题字符串和如何显示按钮和处理相关任务的选项。当用户选择一个操作时，系统为你应用提供操作标识字符串，你可以使用该字符串去标识要执行的任务。&lt;strong&gt;列表 2-3&lt;/strong&gt; 是对&lt;strong&gt;列表 2-2&lt;/strong&gt; 的扩充：添加一个带有两个自定义操作的新的 category &lt;/p&gt;
+&lt;p&gt;去定义一个自定义操作，创建一个 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationaction&quot;&gt;UNNotificationAction&lt;/a&gt; 对象并添加它到你一个 category 的对象中。每一个操作包含相应按钮的标题字符串和如何显示按钮和处理相关任务的选项。当用户选择一个操作时，系统为你应用提供操作标识字符串，你可以使用该字符串去标识要执行的任务。&lt;strong&gt;列表 2-3&lt;/strong&gt; 是对&lt;strong&gt;列表 2-2&lt;/strong&gt; 的扩充：添加一个带有两个自定义操作的新的 category&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;列表 2-3 定义带有自定义操作的一个 category&lt;/strong&gt;&lt;/p&gt;
 
@@ -173,167 +171,167 @@ center.setNotificationCategories([generalCategory, expiredCategory])&lt;/code&gt
 
 &lt;p&gt;关于处理选中的自定义操作的详细信息，见 &lt;a href=&quot;https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW2&quot;&gt;Responding to the Selection of a Custom Action&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3&gt;Preparing Custom Alert Sounds&lt;/h3&gt;
+&lt;h3 id=&quot;preparing-custom-alert-sounds&quot;&gt;Preparing Custom Alert Sounds&lt;/h3&gt;
 
-&lt;h4&gt;准备自定义提示铃声&lt;/h4&gt;
+&lt;h4 id=&quot;准备自定义提示铃声&quot;&gt;准备自定义提示铃声&lt;/h4&gt;
 
 &lt;p&gt;本地和远程通知能够指定自定义通知铃声，可以打包音频数据在 aiff, wav 或者 caf 文件。因为他们用于播放系统声音，自定义声音能够为以下音频格式中的一种：&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Linear PCM&lt;/li&gt;
-&lt;li&gt;MA4(IMA/ADPCM)&lt;/li&gt;
-&lt;li&gt;µLaw&lt;/li&gt;
-&lt;li&gt;aLaw&lt;/li&gt;
+  &lt;li&gt;Linear PCM&lt;/li&gt;
+  &lt;li&gt;MA4(IMA/ADPCM)&lt;/li&gt;
+  &lt;li&gt;µLaw&lt;/li&gt;
+  &lt;li&gt;aLaw&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;放置自定义铃声文件到应用包里面或者在应用容器目录中的 Library/Sounds 文件。自定义铃声必须低于30秒。如果超过这个限制，将会被默认的系统铃声替换掉。&lt;/p&gt;
 
 &lt;p&gt;你可以使用 afconvert 工具去转换声音。例如：在 CAF 文件中将16位的 PCM 系统声音 Submarine.aff 转换成 IMA4 音频, 在终端命令行中执行下面代码：&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;如何关联一个音频文件到通知的详细信息，见 &lt;a href=&quot;https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW3&quot;&gt;Adding a Sound to the Notification Content&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3&gt;Managing Your App‘s Notifications Settings&lt;/h3&gt;
+&lt;h3 id=&quot;managing-your-apps-notifications-settings&quot;&gt;Managing Your App‘s Notifications Settings&lt;/h3&gt;
 
-&lt;h4&gt;管理你的应用通知设置&lt;/h4&gt;
+&lt;h4 id=&quot;管理你的应用通知设置&quot;&gt;管理你的应用通知设置&lt;/h4&gt;
 
 &lt;p&gt;因为用户能够在任何时候改变应用的通知设置，你也可以在任何时候使用 UNUserNotificationCenter 单例对象中 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl&quot;&gt;getNotificationSettingsWithCompletionHandler:&lt;/a&gt; 方法去获取应用授权状态。这个方法返回一个 UNNotificationSettings 对象, 该对象的内容反映了应用当前授权状态和当前的通知环境。&lt;/p&gt;
 
 &lt;p&gt;使用 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationsettings&quot;&gt;UNNotificationSettings&lt;/a&gt; 对象去调整你的应用通知的相关代码。你可以传达你应用的提示，标志，和声音授权设置到自定义的服务端，因此你的服务端能够适应任何远程通知内容的选项。你可以使用其他设置调整如何安排和配置通知。关于更多有用的设置，见 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unnotificationsettings&quot;&gt;UNNotificationSettings Class Reference&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3&gt;Managing Delivered Notifications&lt;/h3&gt;
+&lt;h3 id=&quot;managing-delivered-notifications&quot;&gt;Managing Delivered Notifications&lt;/h3&gt;
 
-&lt;h4&gt;管理分发的通知&lt;/h4&gt;
+&lt;h4 id=&quot;管理分发的通知&quot;&gt;管理分发的通知&lt;/h4&gt;
 
-&lt;p&gt;当本地通知和远程通知没有被应用或者用户直接处理，他们存放在通知中心，因此他们可以稍后被展示。使用 UNUserNotificationCenter 单例对象中的 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649520-getdeliverednotifications&quot;&gt;getDeliveredNotificationsWithCompletionHandler:&lt;/a&gt; 方法去获取一系列仍在通知中心显示的通知。如果你找到过期或者不应该显示给用户的通知，可以使用 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649500-removedeliverednotifications&quot;&gt;removeDeliveredNotificationsWithIdentifiers: &lt;/a&gt; 方法移除他们。&lt;/p&gt;</content><author><name>Gia Jiang</name></author><summary type="html">Managing Your App&amp;#39;s Notification Support
-
+&lt;p&gt;当本地通知和远程通知没有被应用或者用户直接处理，他们存放在通知中心，因此他们可以稍后被展示。使用 UNUserNotificationCenter 单例对象中的 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649520-getdeliverednotifications&quot;&gt;getDeliveredNotificationsWithCompletionHandler:&lt;/a&gt; 方法去获取一系列仍在通知中心显示的通知。如果你找到过期或者不应该显示给用户的通知，可以使用 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649500-removedeliverednotifications&quot;&gt;removeDeliveredNotificationsWithIdentifiers: &lt;/a&gt; 方法移除他们。&lt;/p&gt;</content><author><name>Gia Jiang</name></author><summary type="html">Managing Your App’s Notification Support
 管理应用通知支持</summary></entry><entry><title type="html">What is this, anyway?</title><link href="http://localhost:4000/jekyll/testing/2013/12/09/What-is-this-anyway.html" rel="alternate" type="text/html" title="What is this, anyway?" /><published>2013-12-09T03:55:16+08:00</published><updated>2013-12-09T03:55:16+08:00</updated><id>http://localhost:4000/jekyll/testing/2013/12/09/What-is-this-anyway</id><content type="html" xml:base="http://localhost:4000/jekyll/testing/2013/12/09/What-is-this-anyway.html">&lt;p&gt;Herring Cove is a clean and responsive theme for Jekyll.&lt;/p&gt;
 
-&lt;h3&gt;Overview&lt;/h3&gt;
+&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Fixed Sidebar with social links&lt;/li&gt;
-&lt;li&gt;Minimal design&lt;/li&gt;
-&lt;li&gt;Comments by Disqus&lt;/li&gt;
-&lt;li&gt;Social Sharing abilities&lt;/li&gt;
-&lt;li&gt;Easy to configure&lt;/li&gt;
-&lt;li&gt;Based on Bootstrap&lt;/li&gt;
+  &lt;li&gt;Fixed Sidebar with social links&lt;/li&gt;
+  &lt;li&gt;Minimal design&lt;/li&gt;
+  &lt;li&gt;Comments by Disqus&lt;/li&gt;
+  &lt;li&gt;Social Sharing abilities&lt;/li&gt;
+  &lt;li&gt;Easy to configure&lt;/li&gt;
+  &lt;li&gt;Based on Bootstrap&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;Screenshots&lt;/h3&gt;
+&lt;h3 id=&quot;screenshots&quot;&gt;Screenshots&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/screenshot1.png&quot; alt=&quot;screenshot&quot;&gt;
-&lt;img src=&quot;/images/screenshot2.png&quot; alt=&quot;screenshot&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/screenshot1.png&quot; alt=&quot;screenshot&quot; /&gt;
+&lt;img src=&quot;/images/screenshot2.png&quot; alt=&quot;screenshot&quot; /&gt;&lt;/p&gt;
 
-&lt;h3&gt;Setup&lt;/h3&gt;
+&lt;h3 id=&quot;setup&quot;&gt;Setup&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Install Jekyll&lt;/li&gt;
-&lt;li&gt;Fork or &lt;a href=&quot;https://github.com/arnp/herring-cove/archive/master.zip&quot;&gt;download&lt;/a&gt; this theme repo&lt;/li&gt;
-&lt;li&gt;Edit the &lt;code&gt;_config.yml&lt;/code&gt; file&lt;/li&gt;
+  &lt;li&gt;Install Jekyll&lt;/li&gt;
+  &lt;li&gt;Fork or &lt;a href=&quot;https://github.com/arnp/herring-cove/archive/master.zip&quot;&gt;download&lt;/a&gt; this theme repo&lt;/li&gt;
+  &lt;li&gt;Edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;You can change the showcase image by replacing &lt;code&gt;showcase.jpg&lt;/code&gt; file in the &lt;code&gt;images&lt;/code&gt; folder. I&amp;#39;ll try to find a better way to do this soon.&lt;/p&gt;
+&lt;p&gt;You can change the showcase image by replacing &lt;code class=&quot;highlighter-rouge&quot;&gt;showcase.jpg&lt;/code&gt; file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;images&lt;/code&gt; folder. I’ll try to find a better way to do this soon.&lt;/p&gt;
 
-&lt;h3&gt;Download&lt;/h3&gt;
+&lt;h3 id=&quot;download&quot;&gt;Download&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/arnp/herring-cove/archive/master.zip&quot;&gt;download&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;License&lt;/h3&gt;
-
+&lt;h3 id=&quot;license&quot;&gt;License&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr&gt;
-
+&lt;hr /&gt;
 &lt;p&gt;Herring Cove is always a work in progress and as such, I hope to clean up the code and add features as time permits. Feel free to add your own additions.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;What&amp;#39;s with the name?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;What’s with the name?&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.capecodbeachchair.com/beachguide/index.cfm?page=3&amp;amp;BeachID=5&quot;&gt;Herring Cove&lt;/a&gt; is a beach on Cape Cod in Provincetown, Massachusetts. If you&amp;#39;re in the area, be sure to check it out!&lt;/p&gt;</content><author><name>Gia Jiang</name></author><summary type="html">Herring Cove is a clean and responsive theme for Jekyll.</summary></entry><entry><title type="html">Samples</title><link href="http://localhost:4000/2013/12/04/Samples.html" rel="alternate" type="text/html" title="Samples" /><published>2013-12-04T00:00:00+08:00</published><updated>2013-12-04T00:00:00+08:00</updated><id>http://localhost:4000/2013/12/04/Samples</id><content type="html" xml:base="http://localhost:4000/2013/12/04/Samples.html">&lt;h1&gt;Samples&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.capecodbeachchair.com/beachguide/index.cfm?page=3&amp;amp;BeachID=5&quot;&gt;Herring Cove&lt;/a&gt; is a beach on Cape Cod in Provincetown, Massachusetts. If you’re in the area, be sure to check it out!&lt;/p&gt;</content><author><name>Gia Jiang</name></author><summary type="html">Herring Cove is a clean and responsive theme for Jekyll.</summary></entry><entry><title type="html">Samples</title><link href="http://localhost:4000/2013/12/04/Samples.html" rel="alternate" type="text/html" title="Samples" /><published>2013-12-04T00:00:00+08:00</published><updated>2013-12-04T00:00:00+08:00</updated><id>http://localhost:4000/2013/12/04/Samples</id><content type="html" xml:base="http://localhost:4000/2013/12/04/Samples.html">&lt;h1 id=&quot;samples&quot;&gt;Samples&lt;/h1&gt;
 
-&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
 
-&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
 
-&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
 
-&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
 
-&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
 
-&lt;h6&gt;Heading 6&lt;/h6&gt;
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
 
-&lt;h3&gt;Body text&lt;/h3&gt;
+&lt;h3 id=&quot;body-text&quot;&gt;Body text&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Lorem ipsum dolor sit amet&lt;/strong&gt;, consectetur adipiscing elit. Quisque tempus nunc diam, non dignissim risus tincidunt a. Curabitur consequat justo vitae ipsum accumsan tempor. Quisque rhoncus eleifend ante vitae ultricies. Pellentesque suscipit nisl ut metus tincidunt, vulputate sodales dui commodo. Sed eget sapien varius, lacinia lectus nec, tempor dolor. Pellentesque sed mattis magna. Curabitur ut tristique turpis. Morbi sagittis dolor suscipit urna placerat, consectetur venenatis sapien viverra. Mauris vitae felis et sem venenatis cursus.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/cc.jpg&quot; alt=&quot;Image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/cc.jpg&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Donec ornare turpis non ullamcorper pulvinar. &lt;em&gt;Integer ut mauris vehicula mauris posuere adipiscing.&lt;/em&gt; Phasellus dictum cursus convallis. Sed dapibus laoreet porttitor.&lt;/p&gt;
 
-&lt;h3&gt;Blockquotes&lt;/h3&gt;
+&lt;h3 id=&quot;blockquotes&quot;&gt;Blockquotes&lt;/h3&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Fusce non eleifend nisi. Donec pharetra sed ipsum sit amet sollicitudin. Duis dolor ante, gravida varius neque eget, semper commodo libero. In euismod tempor lobortis. Nulla eget lectus nec enim mattis aliquet a sit amet est.&lt;/p&gt;
+  &lt;p&gt;Fusce non eleifend nisi. Donec pharetra sed ipsum sit amet sollicitudin. Duis dolor ante, gravida varius neque eget, semper commodo libero. In euismod tempor lobortis. Nulla eget lectus nec enim mattis aliquet a sit amet est.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2&gt;List Types&lt;/h2&gt;
+&lt;h2 id=&quot;list-types&quot;&gt;List Types&lt;/h2&gt;
 
-&lt;h3&gt;Lists&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Item One
+&lt;h3 id=&quot;lists&quot;&gt;Lists&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;sub one&lt;/li&gt;
-&lt;li&gt;sub two&lt;/li&gt;
-&lt;li&gt;sub three&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;Item Two&lt;/li&gt;
+  &lt;li&gt;Item One
+    &lt;ol&gt;
+      &lt;li&gt;sub one&lt;/li&gt;
+      &lt;li&gt;sub two&lt;/li&gt;
+      &lt;li&gt;sub three&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Item Two&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Uno&lt;/li&gt;
-&lt;li&gt;Dos&lt;/li&gt;
-&lt;li&gt;Tres&lt;/li&gt;
+  &lt;li&gt;Uno&lt;/li&gt;
+  &lt;li&gt;Dos&lt;/li&gt;
+  &lt;li&gt;Tres&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Table&lt;/h2&gt;
+&lt;h2 id=&quot;table&quot;&gt;Table&lt;/h2&gt;
 
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Tables&lt;/th&gt;
-&lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;col 3 is&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;right-aligned&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;col 2 is&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;zebra stripes&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tables&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;right-aligned&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;h2&gt;Code&lt;/h2&gt;
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Gia Jiang</name></author><summary type="html">Samples</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2013/11/09/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2013-11-09T03:55:16+08:00</published><updated>2013-11-09T03:55:16+08:00</updated><id>http://localhost:4000/jekyll/update/2013/11/09/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2013/11/09/welcome-to-jekyll.html">&lt;p&gt;You&amp;#39;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
-To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Gia Jiang</name></author><summary type="html">Samples</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2013/11/09/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2013-11-09T03:55:16+08:00</published><updated>2013-11-09T03:55:16+08:00</updated><id>http://localhost:4000/jekyll/update/2013/11/09/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2013/11/09/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code class=&quot;highlighter-rouge&quot;&gt;-w&lt;/code&gt; switch) to see your changes!
+To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
 
 &lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
 
@@ -343,5 +341,5 @@ To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; direc
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&amp;#39;s GitHub repo&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gia Jiang</name></author><summary type="html">You&amp;#39;ll find this post in your _posts directory - edit this post and re-build (or run with the -w switch) to see your changes!
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;</content><author><name>Gia Jiang</name></author><summary type="html">You’ll find this post in your _posts directory - edit this post and re-build (or run with the -w switch) to see your changes!
 To add new posts, simply add a file in the _posts directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</summary></entry></feed>

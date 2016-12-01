@@ -1,6 +1,6 @@
 name: Gia Jiang
 author: Gia Jiang
-baseurl: https://codergiajiang.github.io/GiaJiangBlog.github.io/
+url:https://codergiajiang.github.io/GiaJiangBlog.github.io/
 description: Gia Jiang Blog
 github: https://codergiajiang.github.io
 twitter: http://www.twitter.com/
@@ -13,10 +13,12 @@ disqus: diqus-username
 ##Make sure to edit the above fields, especially for disqus.
 
 
+markdown: kramdown
 highlighter: rouge
-markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
+kramdown:
+input: GFM
+hard_wrap: false
+syntax_highlighter: rouge
 
 defaults:
   - scope:
