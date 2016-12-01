@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-12-01T18:15:57+08:00</updated><id>http://localhost:4000//</id><title type="html">Gia Jiang</title><subtitle>Gia Jiang Blog</subtitle><author><name>Gia Jiang</name></author><entry><title type="html">Notification in Yours App (二)</title><link href="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html" rel="alternate" type="text/html" title="Notification in Yours App (二)" /><published>2016-11-29T00:00:00+08:00</published><updated>2016-11-29T00:00:00+08:00</updated><id>http://localhost:4000/2016/11/29/Notification-in-Yours-App%20(%E4%BA%8C)</id><content type="html" xml:base="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html">&lt;h3 id=&quot;managing-your-apps-notification-support&quot;&gt;Managing Your App’s Notification Support&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-12-01T18:17:26+08:00</updated><id>http://localhost:4000//</id><title type="html">Gia Jiang</title><subtitle>Gia Jiang Blog</subtitle><author><name>Gia Jiang</name></author><entry><title type="html">Notification in Yours App (二)</title><link href="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html" rel="alternate" type="text/html" title="Notification in Yours App (二)" /><published>2016-11-29T00:00:00+08:00</published><updated>2016-11-29T00:00:00+08:00</updated><id>http://localhost:4000/2016/11/29/Notification-in-Yours-App%20(%E4%BA%8C)</id><content type="html" xml:base="http://localhost:4000/2016/11/29/Notification-in-Yours-App-(%E4%BA%8C).html">&lt;h3 id=&quot;managing-your-apps-notification-support&quot;&gt;Managing Your App’s Notification Support&lt;/h3&gt;
 &lt;h4 id=&quot;管理应用通知支持&quot;&gt;管理应用通知支持&lt;/h4&gt;
 
 &lt;p&gt;应用必须在开启的时候去配置本地和远程通知。特殊情况下，如果它执行以下操作, 必须提前配置应用程序：&lt;/p&gt;
@@ -39,11 +39,8 @@
 requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时间，系统提示用户允许或者拒绝交互请求。因为系统保存用户的响应，当用户再次开启并调用该方法时不再提醒。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;NOTE&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;UNUserNotificationCenter&lt;/code&gt; 中 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl&quot;&gt;getNotificationSettingsWithCompletionHandler: &lt;/a&gt; 的方法去精确地确定哪种交互类型可以使用。&lt;/p&gt;
+  &lt;p&gt;NOTE 
+用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 &lt;code class=&quot;highlighter-rouge&quot;&gt;UNUserNotificationCenter&lt;/code&gt; 中 &lt;a href=&quot;https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl&quot;&gt;getNotificationSettingsWithCompletionHandler: &lt;/a&gt; 的方法去精确地确定哪种交互类型可以使用。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;configuring-categories-and-actionable-notifications&quot;&gt;Configuring Categories and Actionable Notifications&lt;/h3&gt;
@@ -55,11 +52,8 @@ requestAuthorizationWithOptions:completionHandler: &lt;/a&gt; 方法的第一时
 &lt;p&gt;应用必须明确地添加支持可操作的通知。在开启时间，应用必须注册一个或者多个 category, category 定义着应用发送的通知类型。每一个 category 关联的 Action 能够在用户收到一种通知类型执行。每一个 category 能够和四个action 关联，尽管 action 的数量显示依赖于通知如何显示和显示的位置。例如，在横幅不能显示超过两个 action。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;NOTE&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;可操作通知只支持 iOS 和 watchOS.&lt;/p&gt;
+  &lt;p&gt;NOTE 
+可操作通知只支持 iOS 和 watchOS.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;registering-the-notification-categories-for-your-app&quot;&gt;Registering the Notification Categories for Your App&lt;/h3&gt;
