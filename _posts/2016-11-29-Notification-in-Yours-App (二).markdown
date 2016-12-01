@@ -149,7 +149,7 @@ nil]];
 
 **SWIFT**
 
-{% highlight objective-c  %}
+{% highlight objectivec  %}
 
 let generalCategory = UNNotificationCategory(identifier: "GENERAL",
 actions: [],
