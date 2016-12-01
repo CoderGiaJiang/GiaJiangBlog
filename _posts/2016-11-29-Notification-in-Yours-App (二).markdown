@@ -24,17 +24,17 @@ title: Notification in Yours App (二)
 
 **OBJECTIVE-C**
 
-```
+{% highlight objective_c %}
 UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
 [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
-completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    completionHandler:^(BOOL granted, NSError * _Nullable error) {
 // Enable or disable features based on authorization.
 }];
-```
+{% endhighlight %}
 
 **SWIFT**
 
-{% highlight Objective-C %} 
+{% highlight swift %} 
 let center = UNUserNotificationCenter.current()
 center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
 // Enable or disable features based on authorization.
@@ -44,7 +44,7 @@ center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
 你的应用开启并调用 [
 requestAuthorizationWithOptions:completionHandler: ](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649527-requestauthorizationwithoptions) 方法的第一时间，系统提示用户允许或者拒绝交互请求。因为系统保存用户的响应，当用户再次开启并调用该方法时不再提醒。
 
-> NOTE
+> NOTE 
 > 用户能够在任何时候在系统设置中改变交互授权类型。你可以调用 `UNUserNotificationCenter` 中 [getNotificationSettingsWithCompletionHandler: ](https://developer.apple.com/reference/usernotifications/unusernotificationcenter/1649524-getnotificationsettingswithcompl) 的方法去精确地确定哪种交互类型可以使用。
 
 
@@ -72,12 +72,12 @@ Categories 定义你的应用支持的通知类型与告知系统你想如何呈
 **列表 2-1 创建和注册一个通知 category**
 
 **OBJECTIVE-C**
-{% highlight Objective-C %} 
+{% highlight objective_c %}
 UNNotificationCategory* generalCategory = [UNNotificationCategory
-categoryWithIdentifier:@"GENERAL"
-actions:@[]
-intentIdentifiers:@[]
-options:UNNotificationCategoryOptionCustomDismissAction];
+    categoryWithIdentifier:@"GENERAL"
+    actions:@[]
+    intentIdentifiers:@[]
+    options:UNNotificationCategoryOptionCustomDismissAction];
 
 // Register the notification categories.
 UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
@@ -86,11 +86,11 @@ UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotification
 
 **SWIFT**
 
-{% highlight Objective-C %} 
+{% highlight swift %}
 let generalCategory = UNNotificationCategory(identifier: "GENERAL",
-actions: [],
-intentIdentifiers: [],
-options: .customDismissAction)
+    actions: [],
+    intentIdentifiers: [],
+    options: .customDismissAction)
 
 // Register the category.
 let center = UNUserNotificationCenter.current()
@@ -111,65 +111,62 @@ center.setNotificationCategories([generalCategory])
 
 **OBJECTIVE-C**
 
-{% highlight Objective-C %} 
-
+{% highlight objective_c %}
 UNNotificationCategory* generalCategory = [UNNotificationCategory
-categoryWithIdentifier:@"GENERAL"
-actions:@[]
-intentIdentifiers:@[]
-options:UNNotificationCategoryOptionCustomDismissAction];
+    categoryWithIdentifier:@"GENERAL"
+    actions:@[]
+    intentIdentifiers:@[]
+    options:UNNotificationCategoryOptionCustomDismissAction];
+
 
 // Create the custom actions for expired timer notifications.
 UNNotificationAction* snoozeAction = [UNNotificationAction
-actionWithIdentifier:@"SNOOZE_ACTION"
-title:@"Snooze"
-options:UNNotificationActionOptionNone];
+    actionWithIdentifier:@"SNOOZE_ACTION"
+    title:@"Snooze"
+    options:UNNotificationActionOptionNone];
 
 UNNotificationAction* stopAction = [UNNotificationAction
-actionWithIdentifier:@"STOP_ACTION"
-title:@"Stop"
-options:UNNotificationActionOptionForeground];
+    actionWithIdentifier:@"STOP_ACTION"
+    title:@"Stop"
+    options:UNNotificationActionOptionForeground];
 
 // Create the category with the custom actions.
 UNNotificationCategory* expiredCategory = [UNNotificationCategory
-categoryWithIdentifier:@"TIMER_EXPIRED"
-actions:@[snoozeAction, stopAction]
-intentIdentifiers:@[]
-options:UNNotificationCategoryOptionNone];
+    categoryWithIdentifier:@"TIMER_EXPIRED"
+    actions:@[snoozeAction, stopAction]
+    intentIdentifiers:@[]
+    options:UNNotificationCategoryOptionNone];
 
 // Register the notification categories.
 UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
 [center setNotificationCategories:[NSSet setWithObjects:generalCategory, expiredCategory,
 nil]];
-
 {% endhighlight %}
 
 **SWIFT**
 
-{% highlight Objective-C  %}
-
+{% highlight swift  %}
 let generalCategory = UNNotificationCategory(identifier: "GENERAL",
-actions: [],
-intentIdentifiers: [],
-options: .customDismissAction)
+    actions: [],
+    intentIdentifiers: [],
+    options: .customDismissAction)
 
 // Create the custom actions for the TIMER_EXPIRED category.
 let snoozeAction = UNNotificationAction(identifier: "SNOOZE_ACTION",
-title: "Snooze",
-options: UNNotificationActionOptions(rawValue: 0))
+    title: "Snooze",
+    options: UNNotificationActionOptions(rawValue: 0))
 let stopAction = UNNotificationAction(identifier: "STOP_ACTION",
-title: "Stop",
-options: .foreground)
+    title: "Stop",
+    options: .foreground)
 
 let expiredCategory = UNNotificationCategory(identifier: "TIMER_EXPIRED",
-actions: [snoozeAction, stopAction],
-intentIdentifiers: [],
-options: UNNotificationCategoryOptions(rawValue: 0))
+    actions: [snoozeAction, stopAction],
+    intentIdentifiers: [],
+    options: UNNotificationCategoryOptions(rawValue: 0))
 
 // Register the notification categories.
 let center = UNUserNotificationCenter.current()
 center.setNotificationCategories([generalCategory, expiredCategory])
-
 {% endhighlight %}
 
 尽管你可以最多指定在每一个 category 带有四个自定义操作，系统在一些情况下也只能显示前两个。例如，系统在横幅中显示通知只能显示两个操作。当初始化 [UNNotificaitonCategory](https://developer.apple.com/reference/usernotifications/unnotificationcategory) 对象，所以在配置操作数组时，总是配置相关的操作在数组前面。
