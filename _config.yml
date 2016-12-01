@@ -1,6 +1,6 @@
 name: Gia Jiang
 author: Gia Jiang
-url:https://codergiajiang.github.io/GiaJiangBlog.github.io/
+baseurl: https://codergiajiang.github.io/GiaJiangBlog.github.io/
 description: Gia Jiang Blog
 github: https://codergiajiang.github.io
 twitter: http://www.twitter.com/
@@ -17,7 +17,6 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
 input: GFM
-hard_wrap: false
 syntax_highlighter: rouge
 
 defaults:
