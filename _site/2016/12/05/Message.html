@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Messages</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gia Jiang Blog">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/hc.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/rouge.css"> 
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">Gia Jiang</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li><a href="/list.html">List</a></li>
+      <li><a href="/links.html">Links</a></li>
+      <li><a href="/projects.html">Projects</a></li>
+      <li><a href="/about.html">About</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/"><h1 class="brand">Gia Jiang</h1></a><h3>Gia Jiang Blog</h3></li>
+    <hr />
+    <li><a href="/list.html">List</a></li>
+    <li><a href="/links.html">Links</a></li>
+    <li><a href="/projects.html">Projects</a></li>
+    <li><a href="/about.html">About</a></li>
+    <hr />
+    <div id="social-wrapper">
+      <li> <a href="http://www.twitter.com/"><i class="fa fa-twitter-square"></i> @twitter</a></li>
+      <li> <a href="http://www.linkedin.com"><i class="fa fa-linkedin-square"></i> linkedin</a> </li>
+      <li> <a href="http://www.facebook.com"><i class="fa fa-facebook-square"></i> facebook</a></li>
+      <li> <a href="https://codergiajiang.github.io"><i class="fa fa-github-square"></i> github</a> </li>
+    </div>
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Messages</div>
+  <p class="meta">
+    <small>
+      &nbsp;<i class="fa fa-calendar-o"></i> 05 Dec 2016
+    </small>
+  </p> <hr/>
+  <div class="post">
+    <h3 id="messages-sdk-100">Messages SDK 10.0+</h3>
+
+<p>创建应用扩展与短信应用，允许用户发送文本、sticker、媒体文件和通讯信息。更新通讯信息，调整每一个消息状态，因为会话的交流者与其交互。</p>
+
+<h3 id="overview">Overview</h3>
+
+<p>你可以使用 Message framework 去创建两种类型的应用扩展程序。Sticker packs 和 iMessage apps。两种扩展类型能够在iOS应用中创建单独应用或者的应用扩展程序。</p>
+
+<p>更多关于创建和工作应用扩展程序的信息，见 <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214">App Extension Programming Guide</a>。</p>
+
+<h3 id="sticker-packs">Sticker Packs</h3>
+
+<p>Sticker Packs 简单地提供静态设置 sticker 、图片。用户能够发送内嵌消息或者在文本记录中剥去和加入消息气泡。Sticker packs 不需要任何代码。你可以拖拽图片文件到 Sticker 资源目录的 Sticker Pack 文件中来添加 stickers。</p>
+
+<p>有效的图片文件必须满足以下规格：</p>
+<ul>
+  <li>图片必须为 PNG、APNG、GIF 或者 JPEG 文件。</li>
+  <li>文件必须小鱼 500 KB。</li>
+  <li>最好的结果是，图片不应该小于 100 * 100 或者 大于 206 * 206。</li>
+</ul>
+
+<blockquote>
+  <p>Note</p>
+
+  <p>总是提供 @3x 图片 (300 * 300 到 618 * 618)。系统在运行时缩小 @3x 图片生成 @2x 和 @1x 版本。</p>
+</blockquote>
+
+<p>消息支持三个 sticker 尺寸，这些尺寸显示在基于网格的浏览器。在 Xcode 的属性检查器中，为 sticker pack 挑选下面其中一个尺寸:</p>
+<ul>
+  <li>小。100 * 100  @3x(300 * 300)</li>
+  <li>中。136 * 136  @3x(408 * 408)</li>
+  <li>大。206 * 206  @3x(618 * 618)</li>
+</ul>
+
+<p>最佳的质量和性能，提供你选择的 sticker 图片的尺寸。</p>
+
+<p>去学习关于如何创建具有动画效果的 sticker, 见 <a href="https://developer.apple.com/support/stickers/motion/">Creating Sticker with Motion</a>。</p>
+
+<h3 id="imessage-apps">iMessage Apps</h3>
+
+<p>iMessage Apps 应用利用完整的框架和短信应用进行交互。</p>
+
+<blockquote>
+  <p>Note</p>
+
+  <p>一个 iMessage app 链接或者iOS 10.0之后必须包括 Info.plist 文件使用描述键设备特征。他需要使用或者它将 crash。特别地，它必须包括 <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSCameraUsageDescription">NSCameraUsageDescription</a> 去使用设备相机，和它必须包括 <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSMicorphoneUsageDescription">NSMicrophoneUsageDescription</a> 去使用设备的 麦克风。</p>
+</blockquote>
+
+<p>使用 iMessage apps 去：</p>
+
+<ul>
+  <li>在 iMessage app 推出一个自定义用户界面，见 <a href="https://developer.apple.com/reference/messages/msmessagesappviewcontroller?language=objc">MSMessagesAppViewController</a>。</li>
+  <li>创建一个自定义或者动态 sticker 浏览器，见 <a href="https://developer.apple.com/reference/messages/msstickerbrowserviewcontroller?language=objc">MSStrickerBrowserViewController</a>。</li>
+  <li>插入文本、 sticker 或者媒体文件在短信应用输入文本，见 <a href="https://developer.apple.com/reference/messages/msconversation?language=objc">MSConversation</a></li>
+  <li>创建携带用用指定数据通讯消息，见 <a href="https://developer.apple.com/reference/messages/msmessage?language=objc">MSMessage</a>。</li>
+  <li>更新交互消息（例如，创建游戏或者协作应用），见 <a href="https://developer.apple.com/reference/messages/mssession?language=objc">MSSession</a>。</li>
+</ul>
+
+<h3 id="symbols">Symbols</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>类</th>
+      <th style="text-align: left">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/msconversation?language=objc">MSConversation</a></td>
+      <td style="text-align: left">MSConversation类代表一个在短信应用中的对话。使用会话对象去使用当前选择的信息或者参与会话者或者去发送信息、 sticker 、附件、消息对象。</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/msmessage?language=objc">MSMessage</a></td>
+      <td style="text-align: left">使用 MSMessage 类去创建交互消息对象。去创建一个能被会话参与者更新的消息，实例化一个带有会话的消息使用 <a href="https://developer.apple.com/reference/messages/msmessage/1649731-initwithsession?language=objc">initWithSession:</a> 方法。除此之外，用 <a href="https://developer.apple.com/reference/messages/msmessage/1649740-init?language=objc">init</a> 方法实例化。</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/msmessagelayout?language=objc">MSMessageLayout</a></td>
+      <td style="text-align: left">MSMessageLayout 是一个抽象类，它定义在会话文本记录中 <a href="https://developer.apple.com/reference/messages/msmessage?language=objc">MEMessage</a> 对象的外观 。</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/msmessagetemplatelayout?language=objc">MSMessageTemplateLayout</a></td>
+      <td style="text-align: left"><a href="https://developer.apple.com/reference/messages/msmessagetemplatelayout?language=objc">MSMessageTemplateLayout</a> 描述一个 <a href="https://developer.apple.com/reference/messages/msmessage?language=objc">MEMessage</a> 对象如何在文本中推出。消息模板包括 Message extension’s 图标、一张图片、视频或者音频文件，和许多文本组成部分（标题、子标题、字幕、子字幕、尾字幕、尾子字幕，这些组成部分如图表1所示。</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/mssession?language=objc">MSSession</a></td>
+      <td style="text-align: left">使用 MSSession 类去创建和更新消息。</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/mssticker?language=objc">MSSticker</a></td>
+      <td style="text-align: left">在短信应用中使用 sticker 。一个 sticker 能够被作为消息发送或者附加到在文本记录中存在的气泡。</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/msstickerbrowserviewcontroller?language=objc">MSStickerBrowserViewController</a></td>
+      <td style="text-align: left">使用 MSStickerBrowserViewController 去推出标准的 sticker 浏览器。这个浏览器提供拖拉的功能。用户可以长按将其从浏览器中剔除。</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/msstickerview?language=objc">MSStickerView</a></td>
+      <td style="text-align: left">使用 MSStickerView 类去显示 sticker 对象。sticker view 还提供拖拽功能。用户能够长按一个 sticker 从该视图中剔除，和拖 sticker 到在文本记录中的任何气泡。</td>
+    </tr>
+    <tr>
+      <td>协议</td>
+      <td style="text-align: left">说明</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/msstickerbrowserviewdatasource?language=objc">MSStickerBrowserViewDataSource</a></td>
+      <td style="text-align: left">实现 MSStickerBrowserViewDataSource 协议去动态提供 在一个浏览器中的 stickers。</td>
+    </tr>
+    <tr>
+      <td>参考</td>
+      <td style="text-align: left">说明</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/2216109-errors?language=objc">Error</a></td>
+      <td style="text-align: left">该文档描述错误领域和在 sticker 包和 iMessaga App 中使用代码</td>
+    </tr>
+    <tr>
+      <td><a href="https://developer.apple.com/reference/messages/1990031-messages_enumerations?language=objc">Messages Enumeration</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+<a href="https://twitter.com/share" class="twitter-share-button " data-size="small" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2016/12/02/Encryption.html">&larr; Older</a></li>
+
+
+</ul>
+
+<div id="disqus_thread">
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'diqus-username'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+  <a href="http://disqus.com" class="dsq-brlink">
+    comments powered by <span class="logo-disqus">Disqus</span>
+  </a>
+
+</div>
+
+
+      </div>
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2016 Gia Jiang &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+      2016-12-05 16:23:28 +0800
+    </p>
+  </footer>
+</div>
+
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/hc.js"></script>
+
+  </body>
+</html>
