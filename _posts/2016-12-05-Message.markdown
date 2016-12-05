@@ -5,21 +5,22 @@ title: Messages
 
 ### Messages SDK 10.0+
 
-创建应用扩展与短信应用，允许用户发送文本、sticker、媒体文件和通讯信息。更新通讯信息，调整每一个消息状态，因为会话的交流者与其交互。
+创建应用扩展与短信应用，允许用户发送文本、sticker、媒体文件和通讯信息。更新通讯信息，会话的交流者与其交互调整每一个消息状态。
 
 ### Overview
 
-你可以使用 Message framework 去创建两种类型的应用扩展程序。Sticker packs 和 iMessage apps。两种扩展类型能够在iOS应用中创建单独应用或者的应用扩展程序。
+你可以使用 Message framework 去创建两种类型的应用扩展程序。Sticker packs 和 iMessage apps。两种扩展类型都能够创建单独应用或者作为iOS应用中的应用扩展程序。
 
 更多关于创建和工作应用扩展程序的信息，见 [App Extension Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214)。
 
 ### Sticker Packs
 
-Sticker Packs 简单地提供静态设置 sticker 、图片。用户能够发送内嵌消息或者在文本记录中剥去和加入消息气泡。Sticker packs 不需要任何代码。你可以拖拽图片文件到 Sticker 资源目录的 Sticker Pack 文件中来添加 stickers。 
+Sticker Packs 简单地提供静态一套 sticker 、图片。用户能够发送内嵌消息或者在文本记录中剥去和加入消息气泡。Sticker packs 不需要任何代码。你可以拖拽图片文件到 Sticker 资源目录的 Sticker Pack 文件中来添加 stickers。 
 
 有效的图片文件必须满足以下规格：
+
 * 图片必须为 PNG、APNG、GIF 或者 JPEG 文件。
-* 文件必须小鱼 500 KB。
+* 文件必须小于 500 KB。
 * 最好的结果是，图片不应该小于 100 * 100 或者 大于 206 * 206。
 
 > Note
@@ -27,13 +28,14 @@ Sticker Packs 简单地提供静态设置 sticker 、图片。用户能够发送
 > 总是提供 @3x 图片 (300 * 300 到 618 * 618)。系统在运行时缩小 @3x 图片生成 @2x 和 @1x 版本。
 
 消息支持三个 sticker 尺寸，这些尺寸显示在基于网格的浏览器。在 Xcode 的属性检查器中，为 sticker pack 挑选下面其中一个尺寸:
+
 * 小。100 * 100  @3x(300 * 300)
 * 中。136 * 136  @3x(408 * 408)
 * 大。206 * 206  @3x(618 * 618)
 
 最佳的质量和性能，提供你选择的 sticker 图片的尺寸。
 
-去学习关于如何创建具有动画效果的 sticker, 见 [Creating Sticker with Motion](https://developer.apple.com/support/stickers/motion/)。
+去学习更多关于如何创建具有动画效果的 sticker, 见 [Creating Sticker with Motion](https://developer.apple.com/support/stickers/motion/)。
 
 ### iMessage Apps
 
@@ -41,27 +43,29 @@ iMessage Apps 应用利用完整的框架和短信应用进行交互。
 
 > Note
 >
-> 一个 iMessage app 链接或者iOS 10.0之后必须包括 Info.plist 文件使用描述键设备特征。他需要使用或者它将 crash。特别地，它必须包括 [NSCameraUsageDescription](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSCameraUsageDescription) 去使用设备相机，和它必须包括 [NSMicrophoneUsageDescription](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSMicorphoneUsageDescription) 去使用设备的 麦克风。
+> 一个支持iOS10.0或者之后的版本必须在其 Info.list文件中包含具有需要访问的设备功能的使用说明键，否则它将崩溃。特别地，它必须包括 它的[NSCameraUsageDescription](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSCameraUsageDescription) 去使用设备相机，和它必须包括 [NSMicrophoneUsageDescription](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSMicorphoneUsageDescription) 去使用设备的 麦克风。
 
 使用 iMessage apps 去：
 
-* 在 iMessage app 推出一个自定义用户界面，见 [MSMessagesAppViewController](https://developer.apple.com/reference/messages/msmessagesappviewcontroller?language=objc)。
+* 在 Message app 推出一个自定义用户界面，见 [MSMessagesAppViewController](https://developer.apple.com/reference/messages/msmessagesappviewcontroller?language=objc)。
 * 创建一个自定义或者动态 sticker 浏览器，见 [MSStrickerBrowserViewController](https://developer.apple.com/reference/messages/msstickerbrowserviewcontroller?language=objc)。
 * 插入文本、 sticker 或者媒体文件在短信应用输入文本，见 [MSConversation](https://developer.apple.com/reference/messages/msconversation?language=objc) 
-* 创建携带用用指定数据通讯消息，见 [MSMessage](https://developer.apple.com/reference/messages/msmessage?language=objc)。
+* 创建携带指定数据的通讯消息，见 [MSMessage](https://developer.apple.com/reference/messages/msmessage?language=objc)。
 * 更新交互消息（例如，创建游戏或者协作应用），见 [MSSession](https://developer.apple.com/reference/messages/mssession?language=objc)。
 
 ### Symbols
 
 | 类             | 说明          |
 | ------------- |:-------------|
-| [MSConversation](https://developer.apple.com/reference/messages/msconversation?language=objc)     | MSConversation类代表一个在短信应用中的对话。使用会话对象去使用当前选择的信息或者参与会话者或者去发送信息、 sticker 、附件、消息对象。 |
-|[MSMessage](https://developer.apple.com/reference/messages/msmessage?language=objc) | 使用 MSMessage 类去创建交互消息对象。去创建一个能被会话参与者更新的消息，实例化一个带有会话的消息使用 [initWithSession:](https://developer.apple.com/reference/messages/msmessage/1649731-initwithsession?language=objc) 方法。除此之外，用 [init](https://developer.apple.com/reference/messages/msmessage/1649740-init?language=objc) 方法实例化。 |
-|[MSMessageLayout](https://developer.apple.com/reference/messages/msmessagelayout?language=objc) | MSMessageLayout 是一个抽象类，它定义在会话文本记录中 [MEMessage](https://developer.apple.com/reference/messages/msmessage?language=objc) 对象的外观 。 |
+| [MSConversation](https://developer.apple.com/reference/messages/msconversation?language=objc)     | MSConversation类表示一个在短信应用中的对话。使用会话对象去使用当前选择的信息或者参与会话者或者去发送信息、 sticker 、附件、消息对象。 |
+|[MSMessage](https://developer.apple.com/reference/messages/msmessage?language=objc) | 使用 MSMessage 类去创建交互消息对象。去创建一个能被会话参与者更新的消息，使用 [initWithSession:](https://developer.apple.com/reference/messages/msmessage/1649731-initwithsession?language=objc) 方法实例化一个带有会话的消息。除此之外，用 [init](https://developer.apple.com/reference/messages/msmessage/1649740-init?language=objc) 方法实例化。 |
+|[MSMessageLayout](https://developer.apple.com/reference/messages/msmessagelayout?language=objc) | MSMessageLayout 是一个抽象基类，它定义在会话文本记录中 [MEMessage](https://developer.apple.com/reference/messages/msmessage?language=objc) 对象的外观 。 |
+|[MSMessageAppViewController](https://developer.apple.com/reference/messages/msmessagesappviewcontroller?language=objc)|MSMessageAppViewController 类作为Message扩展的主要视图控制器。使用该类去管理你的扩展。更多应用扩展的信息，见 [App Extension Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214)。|
 |[MSMessageTemplateLayout](https://developer.apple.com/reference/messages/msmessagetemplatelayout?language=objc) | [MSMessageTemplateLayout](https://developer.apple.com/reference/messages/msmessagetemplatelayout?language=objc) 描述一个 [MEMessage](https://developer.apple.com/reference/messages/msmessage?language=objc) 对象如何在文本中推出。消息模板包括 Message extension's 图标、一张图片、视频或者音频文件，和许多文本组成部分（标题、子标题、字幕、子字幕、尾字幕、尾子字幕，这些组成部分如图表1所示。 | 
 |[MSSession](https://developer.apple.com/reference/messages/mssession?language=objc)| 使用 MSSession 类去创建和更新消息。|
-|[MSSticker](https://developer.apple.com/reference/messages/mssticker?language=objc)| 在短信应用中使用 sticker 。一个 sticker 能够被作为消息发送或者附加到在文本记录中存在的气泡。 |
-|[MSStickerBrowserViewController](https://developer.apple.com/reference/messages/msstickerbrowserviewcontroller?language=objc)|使用 MSStickerBrowserViewController 去推出标准的 sticker 浏览器。这个浏览器提供拖拉的功能。用户可以长按将其从浏览器中剔除。|
+|[MSSticker](https://developer.apple.com/reference/messages/mssticker?language=objc)| sticker 在短信应用中的使用 。一个 sticker 能够被作为消息发送或者附加到在文本记录中存在的气泡。 |
+|[MSStickerBrowserView](https://developer.apple.com/reference/messages/msstickerbrowserview?language=objc)| 使用 MSStickerBrowserView 类去显示一个动态生成的 sticker 列表。流浪器提供拖拽的功能。用户可以长按 sticker 将其从浏览中剔除，拖拽 sticker 到在文本记录中的任何气泡。用户还能轻拍 sticker 添加他们到 Message app 的输入文本。|
+|[MSStickerBrowserViewController](https://developer.apple.com/reference/messages/msstickerbrowserviewcontroller?language=objc)|使用 MSStickerBrowserViewController 去推出标准的 sticker 浏览器。这个浏览器提供拖拉的功能。用户可以长按将其从浏览器中剔除，拖拽 sticker 到在文本记录中的任何气泡。用户还能轻拍 sticker 添加他们到 Message app 的输入文本。|
 |[MSStickerView](https://developer.apple.com/reference/messages/msstickerview?language=objc)|使用 MSStickerView 类去显示 sticker 对象。sticker view 还提供拖拽功能。用户能够长按一个 sticker 从该视图中剔除，和拖 sticker 到在文本记录中的任何气泡。|
 | 协议             | 说明          |
 |[MSStickerBrowserViewDataSource](https://developer.apple.com/reference/messages/msstickerbrowserviewdatasource?language=objc)| 实现 MSStickerBrowserViewDataSource 协议去动态提供 在一个浏览器中的 stickers。 |
